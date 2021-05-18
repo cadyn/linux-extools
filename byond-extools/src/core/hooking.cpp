@@ -124,6 +124,18 @@ bool Core::hook_custom_opcodes() {
 	oTopicFloodCheck = install_hook(TopicFloodCheck, hTopicFloodCheck);
 	oStartTiming = install_hook(StartTiming, hStartTiming);
 	if (!(oCrashProc && oCallGlobalProc && oTopicFloodCheck && oStartTiming)) {
+		if(!oCrashProc){
+			Core::Alert("Failed to install Crash Proc hook");
+		}
+		if(!oCallGlobalProc){
+			Core::Alert("Failed to install Call Global Proc hook");
+		}
+		if(!oTopicFloodCheck){
+			Core::Alert("Failed to install Topic Flood Check hook");
+		}
+		if(!oStartTiming){
+			Core::Alert("Failed to install Start Timing hook");
+		}
 		Core::Alert("Failed to install hooks!");
 		return false;
 	}
