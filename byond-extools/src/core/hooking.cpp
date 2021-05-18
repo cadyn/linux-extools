@@ -137,7 +137,8 @@ bool Core::hook_custom_opcodes() {
 			Core::Alert("Failed to install Start Timing hook");
 		}
 		Core::Alert("Failed to install hooks!");
-		return false;
+		//return false; What could go wrong
+		return true;
 	}
 	return true;
 }
